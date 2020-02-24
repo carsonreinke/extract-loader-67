@@ -11,7 +11,12 @@ module.exports = {
             {
                 test: pathToIndexHtml,
                 use: [
-                    "file-loader",
+                    {
+                        loader: "file-loader",
+                        options: {
+                            esModule: false
+                        }
+                    },
                     "extract-loader",
                     {
                         loader: "html-loader",
@@ -24,7 +29,12 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    "file-loader",
+                    {
+                        loader: "file-loader",
+                        options: {
+                            esModule: false
+                        }
+                    },
                     "extract-loader",
                     {
                         loader: "css-loader",
@@ -36,7 +46,12 @@ module.exports = {
             },
             {
                 test: /\.jpg$/,
-                use: "file-loader"
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        esModule: false
+                    }
+                },
             }
         ]
     }
